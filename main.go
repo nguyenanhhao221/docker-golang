@@ -7,6 +7,15 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+		}
+		if _, err := w.Write([]byte("Hello, Mom")); err != nil {
+			log.Printf("Error when write data for root path: %v", err)
+			return
+		}
+	})
 	http.HandleFunc("/health", handleCheckHealth)
 
 	PORT := ":8080"
