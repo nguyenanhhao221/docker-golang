@@ -1,6 +1,6 @@
-FROM golang:1.20.5-alpine3.17
+# syntax=docker/dockerfile:1
 
-RUN apk update && apk add --no-cache make
+FROM golang:1.20
 
 WORKDIR /app
 COPY go.mod ./
@@ -9,7 +9,7 @@ COPY *.go ./
 
 RUN go mod download
 
-RUN make build
+RUN make build-docker
 
 # Optional:
 # To bind to a TCP port, runtime parameters must be supplied to the docker command.
@@ -18,4 +18,4 @@ RUN make build
 # https://docs.docker.com/engine/reference/builder/#expose
 EXPOSE 8080
 
-CMD [ "make", "run" ]
+CMD ["make", "run"]
