@@ -11,6 +11,12 @@ Before running this project, ensure that you have the following installed on you
 - Docker: [Docker Installation Guide](https://docs.docker.com/get-docker/)
 - Go (Golang): [Golang Installation Guide](https://golang.org/doc/install) 1.19 or higher
 
+## Project Structure
+
+- `main.go`: a simple http server written in Go Lang.
+- `Dockerfile`: step to build a very basic docker image of our application
+- `Dockerfile.multistage`: More optimized multistage Dockerfile.
+
 ## Getting Started
 
 1. **Clone the repository:**
