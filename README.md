@@ -24,3 +24,48 @@ Before running this project, ensure that you have the following installed on you
    ```bash
    git clone https://github.com/nguyenanhhao221/docker-golang.git
    ```
+2. **Move into our project:**
+
+   ```bash
+   cd docker-golang
+   ```
+
+3. **Build Docker Image**
+   - For basic image
+       ```bash
+       docker build -t docker-golang:latest .
+       ```
+   - For multistage image
+       ```bash
+        docker build . \
+        -t docker-golang:multistage \
+        -f Dockerfile.multistage
+       ```
+
+4. **Run Docker Image**
+    - For basic image
+    ```bash
+        docker run \
+        -p 8080:8080 \
+        --name docker-golang \
+        -d \
+        docker-golang:latest
+    ```
+
+   - For multistage image
+    ```bash
+        docker run \
+        -p 8080:8080 \
+        --name docker-golang-container \
+        -d \
+        docker-golang:multistage
+    ```
+5. **See how it work**
+
+    Once your docker image is running, there is a http server listening on port 8080, you can make a request to it to see the response.
+   - Make request
+
+    ```bash
+    curl http://localhost:8080
+    ```
+
